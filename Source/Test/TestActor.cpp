@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "TestActor.h"
@@ -15,7 +15,8 @@ ATestActor::ATestActor()
 void ATestActor::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+    GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Cyan, TEXT("모듈에서 만들어진 액터가 스폰됨"));
 }
 
 // Called every frame
