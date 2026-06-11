@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+﻿// Copyright Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
@@ -46,7 +46,11 @@ class ANBC_Solution10Character : public ACharacter
 
 public:
 	ANBC_Solution10Character();
-	
+
+    virtual void BeginPlay() override;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    TSubclassOf<AActor> TestActorClass;
 
 protected:
 

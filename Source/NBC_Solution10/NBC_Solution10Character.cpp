@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+﻿// Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "NBC_Solution10Character.h"
 #include "Engine/LocalPlayer.h"
@@ -10,6 +10,8 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+
+//#include "Test/TestActor.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -52,6 +54,21 @@ ANBC_Solution10Character::ANBC_Solution10Character()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
+}
+
+void ANBC_Solution10Character::BeginPlay()
+{
+    Super::BeginPlay();
+
+    // 스폰 테스트 액터
+    if (TestActorClass)
+    {
+        FVector SpawnLocation = GetActorLocation() + GetActorForwardVector() * 200.0f;
+        FRotator SpawnRotation = GetActorRotation();
+        FActorSpawnParameters SpawnParams;
+        AActor* SpawnedActor = GetWorld()->SpawnActor<AActor>(TestActorClass, SpawnLocation, SpawnRotation, SpawnParams);
+    }
+
 }
 
 //////////////////////////////////////////////////////////////////////////
